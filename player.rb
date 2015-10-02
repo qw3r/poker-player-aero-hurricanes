@@ -5,6 +5,7 @@ class Player
 
   VERSION = "Default Ruby folding player"
   RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+  PLAYER_NAME = "Aero Hurricanes"
 
   attr_reader :game_state
 
