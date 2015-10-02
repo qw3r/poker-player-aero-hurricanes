@@ -12,7 +12,7 @@ class GameState
   end
 
   def my_player
-    @my_player ||= game_state['players'].select { |player| player['name'] == PLAYER_NAME }.first
+    @my_player ||= @data['players']['in_action']
   end
 
   def current_buy_in
