@@ -20,11 +20,8 @@ class Player
   def bet_request
     @logger.info game_state.inspect
 
-    buy_in = game_state.current_buy_in
-    small_blind = game_state.small_blind
-    
     return game_state.allin if game_state.has_pair_in_hand? or game_state.has_more_than_two_of_a_kind?
-    return buy_in if (2 * small_blind >= buy_in) and game_state.has_high_in_hand?
+    return game_state.current_buy_in if game_state.small_bet? and game_state.has_high_in_hand?
     0
   end
 

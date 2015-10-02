@@ -97,4 +97,10 @@ class GameState
       :river
     end
   end
+
+
+
+  def small_bet?
+    2 * small_blind >= current_buy_in
+  end
 end
