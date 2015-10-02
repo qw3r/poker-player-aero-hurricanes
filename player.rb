@@ -3,7 +3,7 @@ require 'logger'
 
 class Player
 
-  VERSION = "Default Ruby folding player"
+  VERSION = "Default Ruby folding player v3 final 2 mod"
   PLAYER_NAME = "Aero Hurricanes"
 
   attr_reader :game_state

@@ -74,6 +74,27 @@ class GameState
 
 
   def cards
-    @cards ||= my_cards + @data["community_cards"]
+    my_cards + community_cards
+  end
+
+
+
+  def community_cards
+    @data["community_cards"]
+  end
+
+
+
+  def stage
+    case community_cards.size
+    when 0
+      :preflop
+    when 3
+      :flop
+    when 4
+      :turn
+    else
+      :river
+    end
   end
 end
