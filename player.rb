@@ -25,7 +25,7 @@ class Player
     small_blind = game_state.small_blind
     
     return game_state.allin if game_state.has_pair?
-    return buy_in if (2 * small_blind >= buy_in)
+    return buy_in if (2 * small_blind <= buy_in)
     0
   end
 
