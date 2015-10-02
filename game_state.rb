@@ -12,7 +12,11 @@ class GameState
   end
 
   def my_player
-    @my_player ||= @data['players']['in_action']
+    @my_player ||= @data['players'][in_action]
+  end
+
+  def in_action
+    @data['in_action']
   end
 
   def current_buy_in
