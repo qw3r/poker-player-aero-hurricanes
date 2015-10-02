@@ -25,8 +25,8 @@ class GameState
 
 
 
-  def has_high_in_hand?
-    my_cards.any? { |card| ['J', 'Q', 'K', 'A'].include? card["rank"] }
+  def all_high_in_hand?
+    my_cards.all? { |card| ['J', 'Q', 'K', 'A'].include? card["rank"] }
   end
 
 
