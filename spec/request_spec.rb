@@ -58,7 +58,7 @@ describe 'The HelloWorld App' do
   end
 
 
-  it "" do
+  it "POST /?action=bet_request" do
     post '/', action: 'bet_request', game_state: game_state
 
     expect(last_response).to be_ok
