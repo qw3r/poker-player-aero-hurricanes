@@ -3,6 +3,8 @@ require_relative 'core_ext'
 class GameState
   RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
+
+
   def initialize(data)
     @data = data
   end
@@ -64,17 +66,17 @@ class GameState
 
 
   def flush?
-    my_cards.group_by { |card| card["suit"] }.any? { |name, group| group.size >= 5 }
+    cards.group_by { |card| card["suit"] }.any? { |name, group| group.size >= 5 }
   end
 
 
 
   def straight?
-    my_cards.map { |card| RANKS.index card["rank"].to_s }.sequences.any? { |a| a.length >=5 }
+    cards.map { |card| RANKS.index card["rank"].to_s }.sequences.any? { |a| a.length >=5 }
   end
 
 
-
+  
   def my_player
     @my_player ||= players[in_action]
   end
@@ -143,14 +145,14 @@ class GameState
 
   def stage
     case community_cards.size
-    when 0
-      :preflop
-    when 3
-      :flop
-    when 4
-      :turn
-    else
-      :river
+      when 0
+        :preflop
+      when 3
+        :flop
+      when 4
+        :turn
+      else
+        :river
     end
   end
 
