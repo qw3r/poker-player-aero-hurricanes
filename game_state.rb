@@ -49,6 +49,18 @@ class GameState
 
 
 
+  def ten_pair_in_hand?
+    my_cards.map { |card| card["rank"] } == ['10', '10']
+  end
+
+
+
+  def suited_in_hand?
+    my_cards.map { |card| card["suit"] }.uniq.size == 1
+  end
+
+
+
   def has_pair_with_hand?
     #cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
   end
