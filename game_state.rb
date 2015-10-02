@@ -11,6 +11,12 @@ class GameState
 
 
 
+  def has_pair_in_hand?
+    my_cards.map { |card| card["rank"] }.uniq.size == 1
+  end
+
+
+
   def has_more_than_two_of_a_kind?
     cards.map { |card| card["rank"] }.uniq.size < cards.size
   end
@@ -47,7 +53,13 @@ class GameState
 
 
 
+  def my_cards
+    my_player["hole_cards"]
+  end
+
+
+
   def cards
-    @cards ||= my_player["hole_cards"] + @data["community_cards"]
+    @cards ||= my_cards + @data["community_cards"]
   end
 end
