@@ -4,7 +4,6 @@ require 'logger'
 class Player
 
   VERSION = "Default Ruby folding player"
-  RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
   PLAYER_NAME = "Aero Hurricanes"
 
   attr_reader :game_state
@@ -25,7 +24,7 @@ class Player
     small_blind = game_state.small_blind
     
     return game_state.allin if game_state.has_pair_in_hand? or game_state.has_more_than_two_of_a_kind?
-    return buy_in if (2 * small_blind >= buy_in)
+    return buy_in if (2 * small_blind >= buy_in) and game_state.has_high_in_hand?
     0
   end
 

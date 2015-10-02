@@ -1,4 +1,6 @@
 class GameState
+  RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+
   def initialize(data)
     @data = data
   end
@@ -19,6 +21,18 @@ class GameState
 
   def has_more_than_two_of_a_kind?
     cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
+  end
+
+
+
+  def has_high_in_hand?
+    my_cards.any? { |card| ['J', 'Q', 'K', 'A'].include? card["rank"] }
+  end
+
+
+
+  def has_pair_with_hand?
+    #cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
   end
 
 
