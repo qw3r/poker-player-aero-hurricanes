@@ -31,6 +31,12 @@ class GameState
 
 
 
+  def q_or_j_pair_in_hand?
+    has_pair_in_hand? and my_cards.all? { |card| ['J', 'Q'].include? card["rank"] }
+  end
+
+
+
   def has_more_than_two_of_a_kind?
     cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
   end

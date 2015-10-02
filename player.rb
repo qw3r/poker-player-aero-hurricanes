@@ -23,6 +23,7 @@ class Player
     case game_state.stage
     when :preflop
       return game_state.allin if game_state.ace_or_king_pair_in_hand?
+      return game_state.small_blind * 8 if game_state.q_or_j_pair_in_hand? or game_state.only_ace_and_king_in_hand?
     else
 
     end
