@@ -63,12 +63,6 @@ class GameState
 
 
 
-  def has_pair_with_hand?
-    #cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
-  end
-
-
-
   def flush?
     my_cards.group_by { |card| card["suit"] }.any? { |name, group| group.size >= 5 }
   end
