@@ -82,7 +82,13 @@ class GameState
 
 
   def my_player
-    @my_player ||= @data['players'][in_action]
+    @my_player ||= players[in_action]
+  end
+
+
+
+  def players
+    @data['players']
   end
 
 
@@ -107,6 +113,12 @@ class GameState
 
   def small_blind
     @data['small_blind']
+  end
+
+
+
+  def call_bet
+    current_buy_in - my_player['bet']
   end
 
 
@@ -151,6 +163,6 @@ class GameState
 
 
   def small_bet?
-    3 * small_blind >= minimum_raise
+    3 * small_blind >= call_bet
   end
 end
