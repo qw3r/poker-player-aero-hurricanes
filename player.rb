@@ -20,6 +20,13 @@ class Player
   def bet_request
     @logger.info game_state.inspect
 
+    case game_state.stage
+    when :preflop
+      return game_state.allin if game_state.ace_or_king_pair_in_hand?
+    else
+
+    end
+
     if game_state.has_pair_in_hand? or game_state.has_more_than_two_of_a_kind?
       return game_state.allin
     end

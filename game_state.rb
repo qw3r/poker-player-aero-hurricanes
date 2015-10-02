@@ -19,6 +19,18 @@ class GameState
 
 
 
+  def ace_or_king_pair_in_hand?
+    has_pair_in_hand? and only_ace_and_king_in_hand?
+  end
+
+
+
+  def only_ace_and_king_in_hand?
+    my_cards.all? { |card| ['K', 'A'].include? card["rank"] }
+  end
+
+
+
   def has_more_than_two_of_a_kind?
     cards.size - cards.map { |card| card["rank"] }.uniq.size > 1
   end
@@ -101,6 +113,6 @@ class GameState
 
 
   def small_bet?
-    2 * small_blind >= current_buy_in
+    4 * small_blind >= current_buy_in
   end
 end
