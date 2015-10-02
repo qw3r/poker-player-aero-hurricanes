@@ -21,7 +21,7 @@ class Player
     small_blind = game_state['small_blind']
     my_player = game_state['players'].select {|player| player['name'] == PLAYER_NAME }
 
-    if 2 * small_blind <= buy_in
+    if 2 * small_blind >= buy_in
       buy_in
     else
       0
