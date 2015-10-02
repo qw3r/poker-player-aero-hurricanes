@@ -25,10 +25,11 @@ class Player
       return game_state.allin if game_state.ace_or_king_pair_in_hand?
       return game_state.small_blind * 8 if game_state.q_or_j_pair_in_hand? or (game_state.only_ace_and_king_in_hand? and game_state.suited_in_hand?)
       return game_state.small_blind * 6 if game_state.ten_pair_in_hand? or (game_state.all_high_in_hand? and game_state.suited_in_hand?) or game_state.only_ace_and_king_in_hand?
-      return game_state.call_bet if game_state.small_bet? and all_high_in_hand?
+      return game_state.call_bet if game_state.small_bet? and game_state.all_high_in_hand?
       # > 500
       # if game_state.has_pair_in_hand?
     else
+      return game_state.allin if game_state.flush? and game_state.straight?
       return game_state.allin if game_state.straight?
       return game_state.allin if game_state.flush?
       return game_state.allin if game_state.has_more_than_two_of_a_kind?
