@@ -11,7 +11,7 @@ class GameState
 
 
 
-  def has_pair?
+  def has_more_than_two_of_a_kind?
     cards.map { |card| card["rank"] }.uniq.size < cards.size
   end
 
