@@ -1,3 +1,5 @@
+require 'core_ext'
+
 class GameState
   RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
@@ -69,6 +71,12 @@ class GameState
 
   def flush?
     my_cards.group_by { |card| card["suit"] }.any? { |name, group| group.size >= 5 }
+  end
+
+
+
+  def straight?
+    my_cards.group_by { |card| RANKS.index card["rank"] }.sequences.any? { |a| a.length >=5 }
   end
 
 

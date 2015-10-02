@@ -28,8 +28,10 @@ class Player
       # > 500
       # if game_state.has_pair_in_hand?
     else
-      return game_state.allin if game_state.has_more_than_two_of_a_kind?
+      return game_state.allin if game_state.straight?
       return game_state.allin if game_state.flush?
+      return game_state.allin if game_state.has_more_than_two_of_a_kind?
+
       return game_state.current_buy_in if game_state.small_bet?
     end
 
