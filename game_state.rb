@@ -1,4 +1,4 @@
-require 'core_ext'
+require_relative 'core_ext'
 
 class GameState
   RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
