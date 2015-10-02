@@ -99,6 +99,12 @@ class GameState
 
 
 
+  def minimum_raise
+    @data['minimum_raise']
+  end
+
+
+
   def small_blind
     @data['small_blind']
   end
@@ -145,6 +151,6 @@ class GameState
 
 
   def small_bet?
-    4 * small_blind >= current_buy_in
+    3 * small_blind >= minimum_raise
   end
 end

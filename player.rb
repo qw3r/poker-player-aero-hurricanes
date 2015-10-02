@@ -32,7 +32,7 @@ class Player
       return game_state.allin if game_state.flush?
       return game_state.allin if game_state.has_more_than_two_of_a_kind?
 
-      return game_state.current_buy_in if game_state.small_bet?
+      return game_state.minimum_raise if game_state.small_bet?
     end
 
     0
