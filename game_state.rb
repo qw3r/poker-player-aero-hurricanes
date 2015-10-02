@@ -76,7 +76,7 @@ class GameState
 
 
   def straight?
-    my_cards.map { |card| RANKS.index card["rank"] }.sequences.any? { |a| a.length >=5 }
+    my_cards.map { |card| RANKS.index card["rank"].to_s }.sequences.any? { |a| a.length >=5 }
   end
 
 
