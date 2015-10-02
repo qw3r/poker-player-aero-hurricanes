@@ -26,7 +26,7 @@ class Player
     @my_player = game_state['players'].select { |player| player['name'] == PLAYER_NAME }.first
 
     return allin if has_pair?
-    return buy_in if (2 * small_blind >= buy_in)
+    return buy_in if (2 * small_blind <= buy_in)
     0
   end
 
