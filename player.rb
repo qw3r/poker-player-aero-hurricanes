@@ -7,17 +7,18 @@ class Player
   PLAYER_NAME = 'Aero Hurricanes'
   RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
-  attr_accessor :my_player
+  attr_reader :my_player, :game_state
 
 
 
-  def initialize
+  def initialize(game_state)
+    @game_state = game_state
     @logger = Logger.new $stdout
   end
 
 
 
-  def bet_request(game_state)
+  def bet_request
     @logger.info game_state.inspect
 
     buy_in = game_state['current_buy_in']
@@ -43,7 +44,7 @@ class Player
 
 
 
-  def showdown(game_state)
+  def showdown
 
   end
 end
