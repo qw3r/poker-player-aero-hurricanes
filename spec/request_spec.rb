@@ -41,7 +41,8 @@ describe 'The HelloWorld App' do
       "dealer": 0,
       "community_cards": [],
       "current_buy_in": 0,
-      "pot": 0
+      "pot": 0,
+      "in_action": 0
     }
     JSON
   }
@@ -50,11 +51,17 @@ describe 'The HelloWorld App' do
     Sinatra::Application
   end
 
-  it "says hello" do
+
+
+  before :each do
+    allow(Logger).to receive(:new).and_return double.as_null_object
+  end
+
+
+  it "" do
     post '/', action: 'bet_request', game_state: game_state
 
     expect(last_response).to be_ok
-
-    p last_response.body
+    expect(last_response.body).to match /\A\d+\Z/
   end
 end
