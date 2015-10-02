@@ -67,6 +67,12 @@ class GameState
 
 
 
+  def flush?
+    my_cards.group_by { |card| card["suit"] }.any? { |name, group| group.size >= 5 }
+  end
+
+
+
   def my_player
     @my_player ||= @data['players'][in_action]
   end
