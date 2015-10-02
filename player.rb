@@ -22,7 +22,7 @@ class Player
 
     buy_in = game_state['current_buy_in']
     small_blind = game_state['small_blind']
-    @my_player = game_state['players'].select { |player| player['name'] == PLAYER_NAME }
+    @my_player = game_state['players'].select { |player| player['name'] == PLAYER_NAME }.first
 
     return allin if has_pair?
     return buy_in if (2 * small_blind >= buy_in)
